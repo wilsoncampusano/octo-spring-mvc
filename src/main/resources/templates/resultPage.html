@@ -5,6 +5,8 @@
         <title>Hello thymeleaf</title>
     </head>
     <body>
-        <span th:text="${message}">Hello html</span>
+        <ul>
+            <li th:each="tweet : ${tweets}" th:text="${tweet?.text}">Tweet</li>
+        </ul>
     </body>
 </html>

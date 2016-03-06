@@ -23,13 +23,8 @@ public class HelloController {
                             String name,  Model model){
 
         SearchResults searchResults = twitter.searchOperations().search(name);
-        boolean thereAreTweets = !searchResults.getTweets().isEmpty();
-        if (thereAreTweets) {
-            Tweet tweet = searchResults.getTweets().get(0);
-            model.addAttribute("message", tweet.getText());
-        } else {
-            model.addAttribute("message", "No results");
-        }
+        model.addAttribute("tweets", searchResults.getTweets());
+
         return "resultPage";
     }
 
