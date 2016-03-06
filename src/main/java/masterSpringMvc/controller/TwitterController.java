@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-public class HelloController {
+public class TwitterController {
 
     @Autowired
     private Twitter twitter;
