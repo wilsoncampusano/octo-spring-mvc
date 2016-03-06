@@ -6,7 +6,7 @@
     </head>
     <body>
         <ul>
-            <li th:each="tweet : ${tweets}" th:text="${tweet?.text}">Tweet</li>
+            <li th:each="tweet : ${tweets}" th:text="${tweet}">Tweet</li>
         </ul>
     </body>
 </html>
