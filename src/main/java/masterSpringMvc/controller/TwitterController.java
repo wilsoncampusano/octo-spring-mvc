@@ -20,18 +20,16 @@ public class TwitterController {
     private Twitter twitter;
 
     @RequestMapping("/")
-    public String index(@RequestParam(value = "name",
-                                    required = false, defaultValue = "")
-                            String name,  Model model){
+    public String index(@RequestParam(name = "search", required = false, defaultValue = "")
+                            String search,  Model model){
 
-        SearchResults searchResults = twitter.searchOperations().search(name);
-        List<String> tweets = searchResults
-                            .getTweets()
-                            .stream()
-                            .map(Tweet::getText)
-                            .collect(Collectors.toList());
+        SearchResults searchResults = twitter.searchOperations().search(search);
+        List<Tweet> tweets = searchResults
+                            .getTweets();
+
 
         model.addAttribute("tweets", tweets);
+        model.addAttribute("search", search);
 
         return "resultPage";
     }
