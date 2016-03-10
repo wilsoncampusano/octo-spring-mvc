@@ -1,7 +1,6 @@
 package masterSpringMvc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.propertyeditors.StringArrayPropertyEditor;
 import org.springframework.social.twitter.api.SearchResults;
 import org.springframework.social.twitter.api.Tweet;
 import org.springframework.social.twitter.api.Twitter;
@@ -14,7 +13,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 public class TwitterController {
@@ -32,6 +30,10 @@ public class TwitterController {
         String SEARCH_KEY = "search";
 
         String search = request.getParameter(SEARCH_KEY);
+        if(search.toLowerCase().contains("struts")){
+            redirectAttributes.addFlashAttribute("error", "Try using spring instead!");
+            return "redirect:/";
+        }
         redirectAttributes.addAttribute(SEARCH_KEY, search);
 
         return "redirect:result";
