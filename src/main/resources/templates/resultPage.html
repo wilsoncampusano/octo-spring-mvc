@@ -3,13 +3,10 @@
     layout:decorator="layout/default">
     <head lang="en">
         <meta charset="utf-8"/>
-        <title>Hello thymeleaf</title>
-        <link href="/webjars/materializecss/0.96.0/css/materialize.css"
-              type="text/css" rel="stylesheet" media="screen,projection"/>
-
+        <title>Hello Thymeleaf</title>
     </head>
     <body>
-        <div class="row" layout:fragment="content">
+        <div class="row" layout:fragment="contenido">
             <h2 class="indigo-text center" th:text="|Tweets results fo ${search}|">Tweets</h2>
 
             <ul class="collection">
