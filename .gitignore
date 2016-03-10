@@ -11,3 +11,10 @@ masterSpringMvc.iml
 .idea/modules.xml
 .idea/vcs.xml
 gradle/wrapper/gradle-wrapper.jar
+*.iml
+*.bin
+*.idx
+.idea/
+build/
+*.lock
+.gradle/2.9/
