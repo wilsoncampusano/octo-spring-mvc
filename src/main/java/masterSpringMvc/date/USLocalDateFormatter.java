@@ -21,7 +21,7 @@ public class USLocalDateFormatter implements Formatter<LocalDate> {
     }
 
 
-    private static String getPattern(Locale locale){
+    public static String getPattern(Locale locale){
         return isUnitedStates(locale) ? US_PATTERN :  NORMAL_PATTERN;
     }
 
