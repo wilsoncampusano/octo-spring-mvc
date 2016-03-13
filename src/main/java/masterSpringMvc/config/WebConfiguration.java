@@ -1,6 +1,5 @@
 package masterSpringMvc.config;
 
-
 import masterSpringMvc.date.USLocalDateFormatter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

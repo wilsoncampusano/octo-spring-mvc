@@ -1,7 +1,6 @@
 package masterSpringMvc.controller.profile;
 
 import masterSpringMvc.date.USLocalDateFormatter;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,7 +19,6 @@ public class ProfileController {
         return USLocalDateFormatter.getPattern(locale);
     }
 
-
     @RequestMapping("/profile")
     public String displayProfile(ProfileForm profileForm){
         return "profile/profilePage";
@@ -32,7 +30,6 @@ public class ProfileController {
         return "profile/profilePage";
     }
 
-
     @RequestMapping(value="/profile" , method = RequestMethod.POST, params = "removeTaste")
     public String removeTaste(ProfileForm profileForm, HttpServletRequest request){
         int index = Integer.valueOf(request.getParameter("removeTaste")).intValue();
@@ -42,7 +39,6 @@ public class ProfileController {
 
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
     public String saveProfile(@Valid  ProfileForm profileForm, BindingResult bindingResult){
-
         if(bindingResult.hasErrors()){
             System.out.println("=======ERROR======");
             return "profile/profilePage";
@@ -50,5 +46,4 @@ public class ProfileController {
 
         return "redirect:/profile";
     }
-
 }

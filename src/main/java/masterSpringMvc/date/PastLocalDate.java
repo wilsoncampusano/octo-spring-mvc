@@ -14,7 +14,6 @@ import java.time.LocalDate;
 @Documented
 public @interface PastLocalDate {
     String message() default "{javax.validation.constraints.Past.message}";
-
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 
