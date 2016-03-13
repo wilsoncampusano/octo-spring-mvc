@@ -35,6 +35,31 @@
                         </div>
                     </div>
 
+                    <fieldset class="row">
+                        <legend th:text="#{tastes.legend}"></legend>
+                        <button class="btn teal" type="submit" name="addTaste" >
+                            <span th:text="#{add.taste}"></span><i class="mdi-content-add left"></i>
+                        </button>
+
+                        <div th:errors="*{tastes}" class="red-text"></div>
+
+                        <div class="row" th:each="taste , rowStat : *{tastes}">
+                            <div class="col s6">
+                                <input type="text" th:field="*{tastes[__${rowStat.index}__]}"
+                                       th:placeholder="#{taste.placeholder}"/>
+                            </div>
+
+                            <div class="col s6">
+                                <button class="btn red" type="submit" name="removeTaste"
+                                    th:value="${rowStat.index}">
+                                    <span th:text="#{remove}"></span><i class="mdi-action-delete right waves-effect"></i>
+                                </button>
+                            </div>
+
+                        </div>
+                    </fieldset>
+
+
                     <div class="row s12">
                         <button class="btn waves-effect waves-light" type="submit" name="save">
                             <span th:text="#{submit}"></span><i class="mdi-content-send right"></i>
