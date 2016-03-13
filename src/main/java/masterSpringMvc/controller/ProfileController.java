@@ -28,8 +28,10 @@ public class ProfileController {
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
     public String saveProfile(@Valid  ProfileForm profileForm, BindingResult bindingResult){
 
-        if(bindingResult.hasErrors())
+        if(bindingResult.hasErrors()){
+            System.out.println("=======ERROR======");
             return "profile/profilePage";
+        }
 
         return "redirect:/profile";
     }
