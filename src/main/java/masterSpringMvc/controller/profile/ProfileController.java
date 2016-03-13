@@ -1,4 +1,4 @@
-package masterSpringMvc.controller;
+package masterSpringMvc.controller.profile;
 
 import masterSpringMvc.date.USLocalDateFormatter;
 import org.springframework.http.HttpRequest;

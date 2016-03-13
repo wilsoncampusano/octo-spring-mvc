@@ -1,4 +1,4 @@
-package masterSpringMvc.controller;
+package masterSpringMvc.config;
 
 
 import masterSpringMvc.date.USLocalDateFormatter;
