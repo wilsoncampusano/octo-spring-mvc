@@ -12,22 +12,22 @@
             <form th:action="@{/profile}" th:object="${profileForm}" method="post" class="col m8 s12 offset-m2">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="twitterHandle" th:field="${profileForm.twitterHandle}"
+                        <input id="twitterHandle" th:field="${profileForm.twitterHandle}" required="required"
                                th:errorclass="invalid" type="text"/>
                         <label for="twitterHandle" th:text="#{twitter.handle}">Twitter Handle</label>
                         <div th:errors="*{twitterHandle}" class="red-text">Error</div>
                     </div>
 
                     <div class="input-field col s6">
-                        <input id="email" th:field="${profileForm.email}"
-                               th:errorclass="invalid" type="text"/>
+                        <input id="email" th:field="${profileForm.email}" required="required"
+                               th:errorclass="invalid" type="email" />
                         <label for="email" th:text="#{email}">Email</label>
                         <div th:errors="*{email}" class="red-text"></div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s6">
-                            <input id="birthDate" th:field="${profileForm.birthDate}"
+                            <input id="birthDate" th:field="${profileForm.birthDate}" required="required"
                                    th:placeholder="${dateFormat}" th:errorclass="invalid" type="text"/>
                             <label for="birthDate" th:text="#{birthdate}">Birth Date</label>
                             <div th:errors="*{birthDate}" class="red-text"></div>
@@ -68,5 +68,17 @@
                 </div>
             </form>
         </div>
+
+        <script layout:fragment="script">
+           $('button').bind('click', function(event){
+               var btn =  event.currentTarget;
+               var $btn = $(btn.form);
+               if(btn.name = 'save'){
+                   $btn.removeAttr('novalidate');
+               }else{
+                   $btn.attr('novalidate', 'novalidate');
+               }
+           });
+        </script>
     </body>
 </html>
